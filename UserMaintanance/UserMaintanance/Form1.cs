@@ -38,5 +38,12 @@ namespace UserMaintanance
             };
             users.Add(u);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd1 = new SaveFileDialog();
+                //ID=
+                //Fullname =
+        }
     }
 }
