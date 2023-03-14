@@ -44,7 +44,7 @@ namespace excelgen
                 xlWB = xlApp.Workbooks.Add(Missing.Value);
                 xlSheet = xlWB.ActiveSheet;
 
-                //CreateTable();
+                CreateTable();
 
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
@@ -59,6 +59,20 @@ namespace excelgen
                 xlWB = null;
                 xlApp = null;
             }
+        }
+
+        void CreateTable()
+        {
+            string[] headers = new string[] {
+     "Kód",
+     "Eladó",
+     "Oldal",
+     "Kerület",
+     "Lift",
+     "Szobák száma",
+     "Alapterület (m2)",
+     "Ár (mFt)",
+     "Négyzetméter ár (Ft/m2)"};
         }
     }
 }
