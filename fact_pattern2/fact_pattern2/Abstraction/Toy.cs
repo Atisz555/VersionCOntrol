@@ -9,27 +9,25 @@ using System.Windows.Forms;
 namespace fact_pattern2.Abstraction
 {
 
-    public class Ball : Label
+    public abstract class Toy : Label
     {
-        public Ball()
+        public Toy()
         {
             AutoSize = false;
             Height = 50;
             Width = Height;
-            Paint += Ball_Paint;
+            Paint += Toy_Paint;
         }
 
-        private void Ball_Paint(object sender, PaintEventArgs e)
+        private void Toy_Paint(object sender, PaintEventArgs e)
         {
             DrawImage(e.Graphics);
         }
 
-        protected void DrawImage(Graphics g)
-        {
-            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
-        }
+        protected abstract void DrawImage(Graphics g);
+        
 
-        public void MoveBall()
+        public void MoveToy()
         {
             Left += 1;
         }
