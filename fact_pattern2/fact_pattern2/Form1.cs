@@ -1,4 +1,5 @@
-﻿using System;
+﻿using fact_pattern2.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,47 @@ namespace fact_pattern2
 {
     public partial class Form1 : Form
     {
+        List<Ball> _balls = new List<Ball>();
+        private BallFactory _factory;
+
+        public BallFactory Factory
+        {
+            get { return _factory; }
+            set { _factory = value; }
+        }
+
         public Form1()
         {
             InitializeComponent();
+            Factory = new BallFactory();
+        }
+
+        private void createTimer_Tick(object sender, EventArgs e)
+        {
+            var ball = Factory.CreateNew();
+            _balls.Add(ball);
+            ball.Left = -ball.Width;
+            mainPanel.Controls.Add(ball);
+        }
+
+        private void conveyorTimer_Tick(object sender, EventArgs e)
+        {
+            var maxPosition = 0;
+            foreach (var ball in _balls)
+            {
+                ball.MoveBall();
+                if (maxPosition < ball.Left)
+                {   
+                    maxPosition = ball.Left;
+                }
+            }
+            if (maxPosition > 2000)
+            {
+                var oldBall = _balls[0];
+                mainPanel.Controls.Remove(oldBall);
+                _balls.Remove(oldBall);
+            }
         }
     }
+
 }

@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace fact_pattern2.Entities
+namespace fact_pattern2.Abstraction
 {
-    
+
     public class Ball : Label
     {
         public Ball()
