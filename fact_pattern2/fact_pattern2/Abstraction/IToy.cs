@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace fact_pattern2.Abstraction
 {
-    public interface IToy
+    public interface IToyFactory
     {
         Toy CreateNew();
 
